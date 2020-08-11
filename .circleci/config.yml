@@ -56,6 +56,7 @@ jobs:
       - image: cimg/base:stable
     working_directory: ~/project
     steps:
+      - checkout
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
