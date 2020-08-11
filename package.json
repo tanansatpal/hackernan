@@ -12,8 +12,7 @@
     "serve:ssr": "node dist/hackernan/server/main.js",
     "build:ssr": "ng build --prod && ng run hackernan:server:production",
     "prerender": "ng run hackernan:prerender",
-    "start:heroku": "node dist/hackernan/server/main.js",
-    "postinstall": "npm run build:ssr"
+    "start:heroku": "node dist/hackernan/server/main.js"
   },
   "private": true,
   "dependencies": {

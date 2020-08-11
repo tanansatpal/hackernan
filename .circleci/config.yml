@@ -54,8 +54,13 @@ jobs:
   deploy:
     docker:
       - image: cimg/base:stable
+    working_directory: ~/project
     steps:
-      - checkout
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      - restore_cache:
+          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Deploy Master to Heroku
           command: |
