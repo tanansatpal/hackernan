@@ -7,7 +7,7 @@ workflows:
   heroku_deploy:
     jobs:
       - build
-      - deploy:
+      - heroku/deploy-via-git:
           requires:
             - build
           filters:
@@ -51,8 +51,3 @@ jobs:
           paths:
             - dist
             - package.json
-  deploy:
-    executor: heroku/default
-    steps:
-      - heroku/install
-      - heroku/deploy-via-git
