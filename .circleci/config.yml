@@ -48,7 +48,7 @@ workflows:
   version: 2
   -deploy:
     jobs:
-      - build∂
+      - build
       - heroku_deploy:
         requires:
           - build
