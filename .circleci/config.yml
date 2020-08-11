@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  heroku: circleci/heroku@0.0.10. # Invoke the Heroku orb
+  heroku: circleci/heroku@1.2.0
 
 jobs:
   build:
@@ -40,16 +40,12 @@ jobs:
           paths:
             - dist
             - package.json
-  heroku_deploy:
-    jobs:
-      - heroku/deploy-via-git
 
 workflows:
-  version: 2
-  -deploy:
+  heroku_deploy:
     jobs:
       - build
-      - heroku_deploy:
+      - heroku/deploy-via-git:
         requires:
           - build
         filters:
