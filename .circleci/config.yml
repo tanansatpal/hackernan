@@ -41,17 +41,17 @@ jobs:
             - dist
             - package.json
   heroku_deploy:
-      jobs:
-        - heroku/deploy-via-git
+    jobs:
+      - heroku/deploy-via-git
 
 workflows:
   version: 2
   -deploy:
     jobs:
-      - build
+      - build∂
       - heroku_deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
